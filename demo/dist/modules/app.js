@@ -271,7 +271,7 @@ window.addEventListener('keydown',e=>{
     if(e.key==='Tab'){const all=[...$('#modal').querySelectorAll('button,a[href],input')];const first=all[0],last=all.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last?.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first?.focus();}return;}
   }
   if(e.key==='Escape'&&!$('#modal').open&&room?.seated){e.preventDefault();room.stand();return;}
-  if(!room?.seated){if(e.key==='Enter'&&document.activeElement?.tagName!=='BUTTON'){e.preventDefault();room?.sit();}return;}
+  if(!room?.seated){if(e.key==='Enter'&&!document.activeElement?.closest('a[href],button,input,textarea,select,summary,[contenteditable="true"]')){e.preventDefault();room?.sit();}return;}
   if(e.ctrlKey||e.metaKey||e.altKey||$('#modal').open||/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName))return;
   const keys={'1':()=>loadSequence('celery'),'2':()=>loadSequence('oyster'),'3':()=>loadSequence('tayne'),h:()=>motion('hat'),f:()=>motion('flarhgunnstow'),d:()=>dimensions(),s:()=>smileOyster(),p:()=>printOyster(),m:()=>$('#sound').click(),' ':()=>$('#play').click(),'/':()=>{restoreWindow('terminal-window');$('#command').focus();},'?':help};
   const action=keys[e.key.toLowerCase()];if(action){e.preventDefault();manual();action();}

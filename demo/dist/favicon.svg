@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#202527"/><path d="M44 18H24l-9 14 9 14h20v-8H28l-4-6 4-6h16z" fill="#d4f36e"/><circle cx="49" cy="49" r="4" fill="#d4f36e"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>Celery Man’s dance computer</title>
+  <rect width="64" height="64" rx="12" fill="#062d62"/>
+  <path d="M0 48 32 39 64 48v16H0Z" fill="#041b36"/>
+  <path d="M32 0v39M0 48l32-9 32 9" stroke="#237bd0" stroke-width="2"/>
+  <path d="M26 44h12l2 11H24Z" fill="#83949b"/>
+  <path d="M22 54h20l4 4H18Z" fill="#d3dcd7"/>
+  <rect x="8" y="9" width="48" height="39" rx="5" fill="#718993"/>
+  <path d="M13 9h38a5 5 0 0 1 5 5v29H8V14a5 5 0 0 1 5-5Z" fill="#d3dcd7"/>
+  <rect x="13" y="14" width="38" height="28" rx="3" fill="#031c38"/>
+  <path d="M16 17h32" stroke="#165882" stroke-width="2" stroke-linecap="round"/>
+  <path d="m25 25 5 4 6-3 6-5M31 29l2 5-8 4m8-4 7 4" stroke="#c8fa67" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="31" cy="22" r="3.4" fill="#c8fa67"/>
+  <path d="M17 45h8" stroke="#45616e" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="49" cy="45" r="1.5" fill="#c8fa67"/>
+</svg>

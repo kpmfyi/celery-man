@@ -1,12 +1,40 @@
-# CINCO Identity Generator 2.5
+# CELERY MAN
 
-An unofficial, interactive parody and fan homage to **Celery Man** from *Tim and Eric Awesome Show, Great Job!* Enter the blue chamber, sit at the computer, and give Celery Man, Oyster, and Tayne some very important instructions. A 3D room surrounds a retro desktop with fuzzy live-action dance loops, synthesized music, and computer noises.
+**CINCO Identity Generator 2.5** · Your work is very important.
 
-This is an ephemeral internet toy: no backend, accounts, analytics, or saved data.
+### [Enter the blue room ↗](https://celeryman.vaporware.gripe/)
 
-## Play
+An unofficial, interactive parody and fan homage to **Celery Man** from *Tim and Eric Awesome Show, Great Job!* Watch Paul arrive, take a seat at a real 3D computer, and spend an unreasonable amount of time asking it for a hat wobble.
 
-Open the generated **celery-man.html** in a recent browser, or run the source locally:
+Made by [kpm.fyi](https://kpm.fyi). A small internet toy with no accounts, analytics, saved data, or plans to become a platform.
+
+<!-- screenshots:start -->
+[![Paul approaches the computer in the blue room](demo/dist/media/paul-entrance.webp)](https://celeryman.vaporware.gripe/)
+
+*The opening frame of the entrance excerpt used in the app. Original footage: Adult Swim / Tim & Eric.*
+<!-- screenshots:end -->
+
+## A very important morning
+
+- **Walk in.** Paul's entrance cuts into the 3D room, then the camera brings you to the monitor. Stand up whenever you need a change of perspective.
+- **Talk to the computer.** Type requests into a working retro desktop. Drag windows around, load a sequence, and let the machine patiently respond.
+- **Get progressively less productive.** Fuzzy live-action dancers, synthesized music, disk chatter, a hat wobble, unnecessary dimensions, and an urgent call from your wife.
+- **Take the shortcut.** Select **Run sketch** for roughly 90 seconds of guided nonsense, or interrupt at any time to take over.
+
+| Tell the computer… | Very important result |
+| --- | --- |
+| `load Celery Man` | Your first sequence of the day |
+| `4D3D3D3` | Additional, entirely necessary windows |
+| `hat wobble` | Tayne demonstrates a new skill |
+| `Flarhgunnstow` | Tiny Tayne takes over the terminal |
+| `Oyster smile` | A portrait worth printing |
+| `print Oyster` | Your extremely important printout |
+| `nude Tayne` | An experimental preview, with a warning and censor effect |
+| `more Celery Man` | A desktop full of Celery Man |
+
+## Play locally
+
+The [live demo](https://celeryman.vaporware.gripe/) needs no installation. To run your own copy:
 
 ```sh
 npm run dev
@@ -14,20 +42,26 @@ npm run dev
 
 Visit **http://localhost:4173**. Development requires Node.js/npm and Python 3; no package installation is needed. Any static file server can also serve `demo/dist/`.
 
-Choose **Enter the blue room** to watch Paul's short, silent entrance. The camera then moves into the interactive 3D monitor. **Skip** goes straight to the computer; **Replay entrance** starts the introduction again. Reduced-motion settings skip the film. Press **Esc** or **Stand up** to return to the room, then click the computer to sit down again.
+Choose **Enter the blue room** to begin, or **Skip to computer** to get straight to work. **Replay entrance** starts the introduction again. Press **Esc** or **Stand up** to return to the room, then click the computer to sit down again.
 
-WebGL is required for the room, and sound starts after a click. The standalone file includes the room, media, fonts, and synthesized soundtrack for offline play. Optional voice commands depend on browser speech-recognition support and may use the browser's speech provider; typed commands always work.
+WebGL is required for the room, and sound starts after a click. Reduced-motion settings skip the entrance film and disable the footer's glow animation. Optional voice commands depend on browser speech-recognition support and may use the browser's speech provider; typed commands always work.
 
-## Things to try
+<details>
+<summary>Keyboard shortcuts and window controls</summary>
 
-- Load Celery Man, Oyster, or the beta sequence Tayne.
-- Kick up **4D3D3D3**, request a **hat wobble**, or let tiny Tayne perform **Flarhgunnstow** on the terminal.
-- Ask Oyster to **smile**, then **print** his portrait.
-- Request experimental Tayne, complete with a warning and censor effect. Ask for **more Celery Man** to fill the desktop.
-- Drag, minimize, maximize, and close the beveled windows. Selecting a dancer restores its windows; `reset` restores the desktop.
-- Choose **Run sketch** for a roughly 90-second sequence of references, interruptions, and increasingly unnecessary windows. A manual command stops the tour.
+| Key | Action |
+| --- | --- |
+| `1` / `2` / `3` | Celery Man / Oyster / Tayne |
+| `D` / `H` / `F` | 4D3D3D3 / hat wobble / Flarhgunnstow |
+| `S` / `P` | Oyster smile / print Oyster |
+| `Space` / `M` | Pause / mute |
+| `/` / `?` | Focus the command line / help |
+| `↑` / `↓` | Recall previous commands |
+| `Esc` | Close a dialog, then stand up |
 
-While seated, `1` / `2` / `3` select a dancer; `D` toggles dimensions; `H` requests a hat wobble; `F` requests Flarhgunnstow; `S` asks Oyster to smile; `P` prints Oyster; `Space` pauses; `M` mutes; `/` focuses the command line; `?` opens help. Use `↑` / `↓` in the command line to recall requests. `Esc` closes an open dialog before standing up. Standing up pauses playback.
+Drag, minimize, maximize, and close windows. Selecting a dancer restores its windows; `reset` restores the desktop. Standing up pauses playback.
+
+</details>
 
 ## Source and builds
 
@@ -45,6 +79,21 @@ While seated, `1` / `2` / `3` select a dancer; `D` toggles dimensions; `H` reque
 | `vendor/`, `fonts/` | Local dependencies and their licenses |
 
 Run `npm run check` for lightweight JavaScript syntax checks. Run `npm run build` to generate the self-contained `celery-man.html`; the dependency-free bundler embeds runtime media for offline use. Keep generated downloads out of source commits. The legacy `modules/dancer.js` is retained for reference and is not used at runtime.
+
+<details>
+<summary>Capture the README screenshots</summary>
+
+The optional capture helper opens the standalone app in Chromium, visits the room and computer, and captures three views without browser chrome or local paths. It adds the images to `docs/screenshots/` and replaces the entrance still above with the finished gallery. It requires a machine that can launch a browser with WebGL.
+
+```sh
+npm install --no-save --package-lock=false playwright@1.61.1
+npx playwright install chromium
+npm run screenshots
+```
+
+Playwright is only used for this documentation task; the app itself remains dependency-free to run. Review the resulting images before committing them.
+
+</details>
 
 ## Cloudflare hosting
 
