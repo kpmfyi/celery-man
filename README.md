@@ -46,6 +46,19 @@ While seated, `1` / `2` / `3` select a dancer; `D` toggles dimensions; `H` reque
 
 Run `npm run check` for lightweight JavaScript syntax checks. Run `npm run build` to generate the self-contained `celery-man.html`; the dependency-free bundler embeds runtime media for offline use. Keep generated downloads out of source commits. The legacy `modules/dancer.js` is retained for reference and is not used at runtime.
 
+## Cloudflare hosting
+
+`wrangler.jsonc` deploys `demo/dist/` directly to Cloudflare Workers Static Assets at **https://celeryman.vaporware.gripe**. No application Worker, framework build, or running development server is needed. Forks should change the Worker name and custom domain before deploying.
+
+Authenticate with a Cloudflare account that owns the domain, then deploy:
+
+```sh
+npx wrangler@4.106.0 login
+npm run deploy
+```
+
+Wrangler configures the custom domain and Cloudflare provisions its DNS record and HTTPS certificate. Resolve any existing record or Worker ownership conflict before replacing it. Credentials stay in Wrangler's user configuration; do not add account IDs, tokens, or local infrastructure details to this repository.
+
 ## Credits and intent
 
 The original [Celery Man sketch](https://www.youtube.com/watch?v=a8K6QUPmv8Q) is by Tim and Eric, features Paul Rudd, and was released by Adult Swim. This project is not affiliated with or endorsed by Tim and Eric, Paul Rudd, or Adult Swim.

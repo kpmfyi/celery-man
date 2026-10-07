@@ -3,6 +3,7 @@ node_modules/
 *.log
 .work/
 .cache/
+.wrangler/
 .agents/
 .codex/
 .aws/

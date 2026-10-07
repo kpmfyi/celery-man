@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "npm --prefix demo run dev",
     "check": "npm --prefix demo run check",
-    "build": "node scripts/build-standalone.mjs"
+    "build": "node scripts/build-standalone.mjs",
+    "deploy": "npx --yes wrangler@4.106.0 deploy"
   }
 }
