@@ -1,0 +1,10 @@
+{
+  "name": "celery-man",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix demo run dev",
+    "check": "npm --prefix demo run check",
+    "build": "node scripts/build-standalone.mjs"
+  }
+}

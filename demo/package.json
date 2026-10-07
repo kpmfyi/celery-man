@@ -1,0 +1,10 @@
+{
+  "name": "cinco-identity-generator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 4173 --bind localhost --directory dist",
+    "check": "node --check dist/modules/app.js && node --check dist/modules/computer-fx.js && node --check dist/modules/entrance.js && node --check dist/modules/room-view.js && node --check dist/modules/room-model.js && node --check dist/modules/stage.js && node --check dist/modules/video-assets.js && node --check dist/modules/audio.js"
+  }
+}

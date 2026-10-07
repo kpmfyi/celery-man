@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#080b10" />
+  <meta name="description" content="Take a seat at Paul’s computer. A very important 3D dance workstation, and an affectionate tribute to Celery Man." />
+  <title>CELERY MAN — CINCO Identity Generator 2.5</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <canvas id="room-canvas" aria-label="Paul’s room, with a desk and a glowing computer. Click the computer to sit down."></canvas>
+  <div class="room-vignette" aria-hidden="true"></div>
+
+  <main id="computer-screen" class="computer-screen" inert aria-hidden="true" aria-label="CINCO computer desktop">
+    <div class="desktop-menu">
+      <span class="desktop-brand"><b>CINCO</b> Identity Generator 2.5</span>
+      <button id="help" type="button"><u>H</u>elp</button>
+      <button id="about" type="button"><u>A</u>bout</button>
+      <span class="menu-spacer"></span>
+      <label for="intensity" class="intensity-label">Dance</label>
+      <input id="intensity" type="range" min="15" max="100" value="60" aria-label="Dance intensity" />
+      <output id="intensity-value" for="intensity">60%</output>
+      <button id="sound" type="button" aria-label="Enable sound" aria-pressed="false" title="Sound (M)">Sound</button>
+      <span id="clock" class="desktop-clock">09:41</span>
+    </div>
+
+    <section id="portrait-window" class="desktop-window portrait-window is-active" aria-label="Identity portrait">
+      <div class="window-title">
+        <button class="system-menu" type="button" data-minimize-window="portrait-window" aria-label="Minimize portrait window">−</button>
+        <span class="window-name" aria-label="Portrait"></span>
+        <button class="window-close" type="button" data-close-window="portrait-window">Close</button>
+        <button class="window-arrow" type="button" data-minimize-window="portrait-window" aria-label="Minimize portrait">▼</button>
+        <button class="window-arrow" type="button" data-maximize-window="portrait-window" aria-label="Maximize portrait">▲</button>
+      </div>
+      <div id="portrait-name" class="portrait-name">Celery Man</div>
+      <div class="portrait-stage"><canvas id="portrait-scene" aria-label="A close-up of Celery Man against a bright pink background"></canvas></div>
+      <div class="window-status portrait-status" aria-hidden="true"></div>
+    </section>
+
+    <section id="dance-window" class="desktop-window dance-window display-panel" aria-label="CINCO ID dance preview">
+      <div class="window-title">
+        <button class="system-menu" type="button" data-minimize-window="dance-window" aria-label="Minimize dance window">−</button>
+        <span class="window-name">CINCO ID</span>
+        <button class="window-close" type="button" data-close-window="dance-window">Close</button>
+        <button class="window-arrow" type="button" data-minimize-window="dance-window" aria-label="Minimize dance">▼</button>
+        <button class="window-arrow" type="button" data-maximize-window="dance-window" aria-label="Maximize dance">▲</button>
+      </div>
+      <div class="dance-menu"><span id="stage-sequence">CELERY MAN</span><span id="four-d-label" hidden>4D3D3D3</span></div>
+      <div id="stage" class="stage">
+        <canvas id="scene" aria-label="Celery Man performing a full-body dance"></canvas>
+        <div id="boot" class="boot"><button id="start" type="button">▶ Load Celery Man</button><span>Your first sequence of the day.</span></div>
+        <div id="load-overlay" class="load-overlay" aria-hidden="true"><span>Generating identity…</span><div class="loading-track"><i></i></div></div>
+        <div id="fallback" class="fallback" hidden><strong>Video signal unavailable</strong><p>Reload the computer to reacquire the sequence.</p></div>
+        <div id="stage-caption" class="stage-caption" aria-live="off"></div>
+      </div>
+      <div class="window-status dance-status"><span id="stage-action">Default sequence</span><span id="timecode">00:00:00</span></div>
+    </section>
+
+    <section id="terminal-window" class="desktop-window terminal-window" aria-label="Paul’s computer command console">
+      <div class="window-title">
+        <button class="system-menu" type="button" data-minimize-window="terminal-window" aria-label="Minimize terminal window">−</button>
+        <span class="window-name">Paul’s COMPUTER</span>
+        <button class="window-close" type="button" data-close-window="terminal-window">Close</button>
+        <button class="window-arrow" type="button" data-minimize-window="terminal-window" aria-label="Minimize terminal">▼</button>
+        <button class="window-arrow" type="button" data-maximize-window="terminal-window" aria-label="Maximize terminal">▲</button>
+      </div>
+      <div class="terminal-body">
+        <p id="response" role="status" aria-live="polite">Good morning, Paul. Select your first sequence.</p>
+        <form id="command-form">
+          <span class="prompt" aria-hidden="true">C:\&gt;</span>
+          <input id="command" name="command" type="text" autocomplete="off" spellcheck="false" aria-label="Tell the computer what to do" placeholder="load Celery Man" maxlength="120" />
+          <button type="submit" aria-label="Execute command" title="Execute command">↵</button>
+        </form>
+      </div>
+      <div class="window-status terminal-status"><span>C:\CINCO\</span><span id="computer-status">READY</span><span class="resize-grip" aria-hidden="true"></span></div>
+    </section>
+
+    <div id="four-d-windows" class="four-d-windows" hidden aria-label="Additional identity windows"></div>
+
+    <section class="program-group" aria-label="Sequences and commands">
+      <div class="program-heading"><span>Sequences &amp; Commands</span><span id="render-mode">CINCO / VERSION 2.5</span></div>
+      <div class="program-icons">
+        <button class="desktop-icon sequence selected" data-sequence="celery" type="button" aria-pressed="true" title="Load Celery Man (1)"><span class="program-symbol person-symbol" aria-hidden="true"><i></i></span><span>Celery Man</span></button>
+        <button class="desktop-icon sequence" data-sequence="oyster" type="button" aria-pressed="false" title="Load Oyster (2)"><span class="program-symbol person-symbol oyster-symbol" aria-hidden="true"><i></i></span><span>Oyster</span></button>
+        <button class="desktop-icon sequence" data-sequence="tayne" type="button" aria-pressed="false" title="Load Tayne (3)"><span class="program-symbol person-symbol tayne-symbol" aria-hidden="true"><i></i></span><span>Tayne</span></button>
+        <button id="dimensions" class="desktop-icon" type="button" aria-pressed="false" title="Kick up the 4D3D3D3 (D)"><span class="program-symbol dimension-symbol" aria-hidden="true">▱</span><span>4D3D3D3</span></button>
+        <button class="desktop-icon motion-button" data-motion="hat" type="button" title="Hat wobble (H)"><span class="program-symbol hat-symbol" aria-hidden="true"></span><span>Hat wobble</span></button>
+        <button class="desktop-icon motion-button flarhgunnstow-button" data-motion="flarhgunnstow" type="button" title="Flarhgunnstow (F)"><span class="program-symbol spin-symbol" aria-hidden="true">↝</span><span>Flarhgunnstow</span></button>
+        <button class="desktop-icon motion-button" data-motion="nude" type="button" title="Experimental preview"><span class="program-symbol censor-symbol" aria-hidden="true">▦</span><span>Nude Tayne</span></button>
+        <button id="print" class="desktop-icon" type="button" title="Print Oyster smiling (P)"><span class="program-symbol printer-symbol" aria-hidden="true"><i></i></span><span>Print Oyster</span></button>
+        <button id="tour" class="desktop-icon" type="button" title="Run the sketch"><span class="program-symbol" aria-hidden="true">▶</span><span>Run sketch</span></button>
+        <button id="play" class="desktop-icon" type="button" aria-label="Play sequence" title="Play / pause (Space)"><span class="program-symbol" aria-hidden="true">Ⅱ</span><span>Pause</span></button>
+      </div>
+    </section>
+    <div class="compatibility-readouts" hidden><span id="dimension-value">OFF</span><span id="coord-x">00.000</span><div id="timeline-fill"></div><button id="reset-view" type="button">Reset view</button></div>
+  </main>
+
+  <div id="room-ui" class="room-ui">
+    <div class="room-wordmark"><strong>CINCO</strong><span>IDENTITY GENERATOR 2.5</span></div>
+    <button id="fullscreen" class="room-tool" type="button" aria-label="Enter full screen" title="Full screen">⛶</button>
+    <div class="seat-prompt"><button id="sit-button" type="button">Sit at the computer <span aria-hidden="true">↗</span></button><p>Click the computer to sit down</p></div>
+    <button id="stand-button" class="stand-button" type="button" hidden>Stand up <span>· Esc</span></button>
+    <button id="entrance-replay" class="entrance-replay" type="button">Replay entrance</button>
+    <p id="room-status" class="room-status" role="status" aria-live="polite"></p>
+  </div>
+  <section id="entrance" class="entrance" aria-label="Paul enters the blue room" hidden>
+    <video id="entrance-film" class="entrance-film" muted playsinline preload="auto" aria-label="Paul walks into the blue room and sits at the computer"></video>
+    <div class="entrance-caption"><span>A VERY IMPORTANT MORNING</span><h1>Good morning, Paul.</h1><button id="entrance-play" type="button">Enter the blue room <span aria-hidden="true">↗</span></button></div>
+    <button id="entrance-skip" type="button">Skip to computer <span aria-hidden="true">→</span></button>
+  </section>
+  <form id="mobile-command-form" class="mobile-command-form"><label for="mobile-command" class="sr-only">Tell the computer what to do</label><span aria-hidden="true">&gt;</span><input id="mobile-command" name="command" type="text" autocomplete="off" spellcheck="false" placeholder="Tell the computer…" maxlength="120" /><button type="submit" aria-label="Execute command">↵</button></form>
+  <div id="room-loading" class="room-loading" role="status"><span class="room-loading-mark" aria-hidden="true"></span><span>Starting the computer…</span></div>
+  <div id="webgl-fallback" class="webgl-fallback" hidden><h1>The computer needs a display adapter.</h1><p>Enable WebGL in your browser, then reload to take a seat.</p></div>
+  <div id="toast" class="toast" role="status"></div>
+  <dialog id="modal"><button class="modal-close" type="button" aria-label="Close dialog">Close</button><div id="modal-content"></div></dialog>
+  <div id="call" class="incoming-call" role="region" aria-label="Incoming call from your wife" hidden><div class="call-heading"><span>Incoming call</span><span aria-hidden="true">☎</span></div><div class="wife-tile"><span aria-hidden="true">☎</span><strong>WIFE</strong></div><p>She says it’s urgent.</p><button id="dismiss-call" type="button">I’m working.</button></div>
+  <noscript><p class="noscript">This computer requires JavaScript. Please enable it to load your first sequence.</p></noscript>
+  <script type="module" src="./modules/app.js"></script>
+</body>
+</html>
